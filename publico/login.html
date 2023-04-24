@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+        <title>LOGIN</title>
+    </head>
+    <body>
+        <main class="d-flex container justify-content-center mt-5 text-lg-start rounded-3">
+            <div class="card">
+                <div class="card-header">
+                Entre ou Cadastre-se
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="/login" class=" m-2 needs-validation" id="form-cadastro" novalidate>
+                        <div class="row">
+                            <div class="col-md-12 mb-2">
+                                <label for="validationCustom01" id="usuario" class=" d-flex form-label">Usuário</label>
+                                <input type="text" class="form-control-lg" id="validationCustom01" name = "usuario" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-2">
+                                <label for="validationCustom02" id="senha" class=" d-flex form-label">Senha</label>
+                                <input type="password" class="form-control-lg" id="validationCustom02" name = "senha" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-12 d-flex justify-content-center">
+                            <a href="/privado/index.html">
+                                <button class="btn btn-success m-3 p-2" type="submit">Login</button>
+                            </a>
+                        </div>
+                        <div class="col-md-12 d-flex justify-content-center">
+                            <a href="#" class="link-secondary text-decoration-none">Cadastre-se</a>
+                        </div>
+                    </form>
+                </div>
+        </div>
+        </main>
+        <script src="/js/bootstrap.min.js"></script>   
+    </body>
+</html> 

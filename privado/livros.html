@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Cadastro de Livros</title>
+</head>
+
+<body class="bg-light">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Biblioteca</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="/livros.html">Livros</a>
+              <a class="nav-link" href="/fornecedor.html">Fornecedores</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    
+    <main class="container mt-5 rounded-3">
+        <div class="card">
+            <form method="POST" action="/cadastro" class="bg-light" id="form-cadastro">
+                <div class="card-header d-flex justify-content-between align-items-center"><span>CADASTRO DE LIVROS</span><button type="button" id="btnNovo" class="btn btn-primary" onclick="novoLivro()">NOVO</button></div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3">
+                            <input type="text" class= "form-label" id="inputCodigo" hidden>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="inputNome" class="form-label">NOME DO LIVRO:</label>
+                            <input type="text" class="form-control" id="inputNome" required="required"
+                                onkeyup="caixaAltaNome()">
+                        </div>
+                        <div class="col-6 mb-2">
+                            <label for="inputAutor" class="form-label">AUTOR:</label>
+                            <input type="text" class="form-control" id="inputAutor" required="required"
+                                onkeyup="caixaAltaAutor()">
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-6">
+                            <label for="inputEditora" class="form-label">EDITORA:</label>
+                            <input type="text" class="form-control" id="inputEditora" required="required"
+                                onkeyup="caixaAltaEditora()">
+                        </div>
+                        <div class="col-6 mb-2">
+                            <label for="inputGenero" class="form-label">GÊNERO:</label>
+                            <select class="form-select" aria-label="Default select example" name="inputGenero"
+                                id="inputGenero" required="required">
+                                <option selected></option>
+                                <option value="FicçãoCient">FICÇÃO CIENTÍFICA</option>
+                                <option value="Romance">ROMANCE</option>
+                                <option value="Suspense">SUSPENSE</option>
+                                <option value="thriler">THRILER PSICOLÓGICO</option>
+                                <option value="policial">INVESTIGAÇÃO E POLICIAL</option>
+                                <option value="distopia">DISTOPIA</option>
+                                <option value="fantasia">FANTASIA</option>
+                                <option value="infantil">INFANTIL</option>
+                                <option value="romance adolescente">ROMANCE ADOLESCENTE</option>
+                                <option value="mitologia">MITOLOGIA</option>
+                                <option value="DesenPes">DESENVOLVIMENTO PESSOAL</option>
+                                <option value="finanças">FINANÇAS</option>
+                                <option value="saude">SAUDE E BEM ESTAR</option>
+                                <option value="medicina">MEDICINA</option>
+                                <option value="espiritualidade">ESPIRITUALIDADE</option>
+                                <option value="linguagemProg">LINGUAGEM DE PROGRAMAÇÃO</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="mensagem">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer mt-3">
+                    <div class="card-flex-end">
+                        <button type="button" id="limpar" class="btn btn-danger" onclick="resetForm()">LIMPAR</button>
+                        <button type="button" id="alt" class="btn btn-warning" onclick="alterar()" hidden>ALTERAR</button>
+                        <button type="submit" id="inserir" class="btn btn-primary">INSERIR</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </main>
+    <div class="mt-5 container">
+        <h3>LIVROS CADASTRADOS</h3>
+        <table class="table" id="table">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome do Livro</th>
+                    <th>Autor</th>
+                    <th>Editora</th>
+                    <th>Genero</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="/js/scriptLivro.js"></script>
+
+</body>
+
+</html>

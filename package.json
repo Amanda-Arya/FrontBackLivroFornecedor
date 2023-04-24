@@ -1,0 +1,19 @@
+{
+  "name": "projetoexpress",
+  "version": "1.0.0",
+  "description": "aula para exemplificar a utilização de modulos do Node.Js, especificamente o módulo Express",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "debug": "node --inspect index"
+  },
+  "author": "Amanda Vergilio",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "session": "^0.1.0"
+  }
+}

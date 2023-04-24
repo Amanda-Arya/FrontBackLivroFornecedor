@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>Cadastro de Fornecedores</title>
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Biblioteca</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="/livros.html">Livros</a>
+              <a class="nav-link" href="/fornecedor.html">Fornecedores</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <main class="container mt-5 rounded-3">
+        <div class="card">
+            <form method="POST" action="/cadastro" class="bg-light" id="form-cadastro">
+                <div class="card-header d-flex justify-content-between align-items-center"><span>CADASTRO DE
+                        FORNECEDORES</span><button type="button" id="btnNovo" class="btn btn-primary"
+                        onclick="novoFornecedor()">NOVO</button></div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6 mb-2">
+                            <label for="inputRazao" class="form-label">RAZÃO SOCIAL:</label>
+                            <input type="text" class="form-control" id="inputRazao" required="required"
+                                onkeyup="caixaAltaRazao()">
+                        </div>
+                        <div class="col-6 mb-2">
+                            <label for="inputNomeF" class="form-label">NOME FANTASIA:</label>
+                            <input type="text" class="form-control" id="inputNomeF" required="required"
+                                onkeyup="caixaAltaNomeF()">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2 mb-2">
+                            <label for="inputCnpj" class="form-label">CNPJ:</label>
+                            <input type="text" class="form-control" id="inputCnpj" required="required">
+                        </div>
+                        <div class="col-2 mb-2">
+                            <label for="inputIe" class="form-label">INSCRIÇÃO ESTADUAL:</label>
+                            <input type="text" class="form-control" id="inputIe" required="required">
+                        </div>
+                        <div class="col-2 mb-2">
+                            <label for="inputCel" class="form-label">CELULAR:</label>
+                            <input type="tel" class="form-control" maxlength="16" placeholder="(99)99999-9999"
+                                onkeyup="phoneMask(event)" id="inputCelular" name="celular" />
+                        </div>
+                        <div class="col-2 mb-2">
+                            <label for="inputTel" class="form-label">TELEFONE:</label>
+                            <input type="tel" class="form-control" maxlength="13" placeholder="(99)9999-9999"
+                                id="inputTelefone" name="telefone" onkeyup="Tel()" />
+                        </div>
+                        <div class="col-4">
+                            <label for="inputEmail" class="form-label">EMAIL:</label>
+                            <input type="email" class="form-control" id="inputEmail" name="email" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mb-2">
+                            <label for="inputRua" class="form-label">RUA:</label>
+                            <input type="text" class="form-control" id="inputRua" required="required"
+                                onkeyup="caixaAltaRua()">
+                        </div>
+                        <div class="col-1 mb-2">
+                            <label for="inputNum" class="form-label">NÚMERO:</label>
+                            <input type="number" class="form-control" id="inputNum" required="required">
+
+                        </div>
+                        <div class="col-3 mb-2">
+                            <label for="inputBairro" class="form-label">BAIRRO:</label>
+                            <input type="text" class="form-control" id="inputBairro" required="required"
+                                onkeyup="caixaAltaBairro()">
+                        </div>
+                        <div class="col-1 mb-2">
+                            <label for="inputEstado" class="form-label">ESTADO:</label>
+                            <select class="form-select" name="estado" id="inputEstado">
+                                <option selected disabled>Selecione...</option>
+                                <option value="">Selecione</option>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MS">MS</option>
+                                <option value="MT">MT</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+                        </div>
+                        <div class="col-3 mb-2">
+                            <label for="inputCidade" class="form-label">CIDADE:</label>
+                            <input type="text" class="form-control" id="inputCidade" name="cidade"
+                                onkeyup="caixaAltaCidade()" />
+                        </div>
+                        <div class="row">
+                            <div class="col-2 mb-2">
+                                <label for="inputCep" class="form-label">CEP:</label>
+                                <input type="text" class="form-control" id="inputCep" required="required">
+
+                            </div>
+                            <div class="col-4  mb-2">
+                                <label for="inputVendedor" class="form-label">VENDEDOR:</label>
+                                <input type="text" class="form-control" id="inputVendedor" name="cidade"
+                                    onkeyup="caixaAltaVendedor()" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div id="mensagem">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer mt-3">
+                        <div class="card-flex-end">
+                            <button type="button" id="limpar" class="btn btn-danger"
+                                onclick="resetForm()">LIMPAR</button>
+                            <button type="button" id="alt" class="btn btn-warning" onclick="alterar()"
+                                hidden>ALTERAR</button>
+                            <button type="submit" id="inserir" class="btn btn-primary">INSERIR</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </main>
+    <div class="mt-5 container">
+        <h3>FORNECEDORES CADASTRADOS</h3>
+        <table class="table" id="table">
+            <thead>
+                <tr>
+                    <th>CNPJ</th>
+                    <th>Nome</th>
+                    <th>Cidade</th>
+                    <th>Celular</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="/js/scriptFornecedor.js"></script>
+
+</body>
+
+</html>
